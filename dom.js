@@ -6,24 +6,6 @@ let textbox = document.querySelector('#textbox')
 let pixel = '';
 let gridSize = 50;
 
-// indian
-
-// const drawGrid = (screenSize) => {
-//     for (i =0; i < screenSize ** 2; i++){
-//         pixel = document.createElement('div');
-//         pixel.classList.add('pixel');
-//         pixel.style.border = '1px solid black';
-//         pixel.style.backgroundColor = 'white';
-//         screen.appendChild(pixel);
-//         }
-//     screen.style.gridTemplateColumns = `repeat(${screenSize}, auto) `;
-//     screen.style.gridTemplateRows = `repeat(${screenSize}, auto) `;
-// }
-
-// drawGrid(gridSize)
-
-
-//my
 let clearbtn = document.querySelector('#clear')
 clearbtn.onclick= clearAndDraw
 
