@@ -1,11 +1,12 @@
 
 const buttons = document.querySelectorAll('buttons')
 const screen = document.querySelector('.screen')
+let textbox = document.querySelector('#textbox')
 
 let pixel = '';
 let gridSize = 50;
 
-// 1
+// indian
 
 // const drawGrid = (screenSize) => {
 //     for (i =0; i < screenSize ** 2; i++){
@@ -22,27 +23,20 @@ let gridSize = 50;
 // drawGrid(gridSize)
 
 
-
-// const clear = (request) => {
-
-// }
-
-
-
-//2
+//my
 let clearbtn = document.querySelector('#clear')
-clearbtn.onclick= clear
+clearbtn.onclick= clearAndDraw
 
-function clear (){
+let drawBtn = document.querySelector('#letsDraw')
+drawBtn.onclick = clearAndDraw
+
+function clearAndDraw (){
     screen.innerHTML="";
-    draw(gridSize)
+    draw()
 }
 
-resize = document.querySelector('#resize')
-resize.onclick = draw
-
-function draw (screenSize) {
-    // screenSize = parseFloat(prompt('enter size, max 100', ''))
+function draw () {
+    screenSize = textbox.value
     for (i =0; i < screenSize ** 2; i++){
         pixel = document.createElement('div');
         pixel.classList.add('pixel');
@@ -52,7 +46,19 @@ function draw (screenSize) {
         }
     screen.style.gridTemplateColumns = `repeat(${screenSize}, auto) `;
     screen.style.gridTemplateRows = `repeat(${screenSize}, auto) `;
+    
+    const pixels = document.querySelectorAll('.pixel')
+    pixels.forEach(pxl => {pxl.addEventListener('mouseenter', function(){
+        pxl.style.backgroundColor = radnomColor();
+    })}
+        )
 }
-draw(50)
 
+function radnomColor (){
+    let color = "rgba("
+    for (i = 0; i < 3 ; i++){
+        color += Math.floor(Math.random()*255) + ','
+    }
+    return color + '1'
+}
 
